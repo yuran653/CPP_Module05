@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:17:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/03 19:42:51 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/06 19:32:21 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 
 int	main() {
 
-	Bureaucrat* a = new Bureaucrat("A", 0);
-	Bureaucrat b("B", 151);
-	std::cout << a->getName() + " has the grade " << a->getGrade() << std::endl;
-	delete a;
+	int number = 0;
 
+	while (number != -1)
+	{	
+		try {
+			
+			std::cout << "Input integer number for creating : ";
+			std::cin >> number;
+			Bureaucrat* a = new Bureaucrat("OnHeap", number);
+			a->incrementGrade();
+			std::cout << *a << std::endl;
+			delete a;
+		}
+		catch (const std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	return 0;
 }
