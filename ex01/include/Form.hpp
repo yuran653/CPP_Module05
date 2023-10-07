@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:33:27 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 16:25:46 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:26:08 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Form {
 		int			getSignGrade() const;
 		int			getExecGrade() const;
 		bool		getSigned();
+		void		beSigned(Bureaucrat obj);
 
 		class GradeTooHighException: public std::exception {
 			public:

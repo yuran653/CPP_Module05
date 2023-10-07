@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 16:03:52 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:27:40 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat {
 		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
+		void		signForm();
 		
 		class GradeTooHighException: public std::exception {
 			public:

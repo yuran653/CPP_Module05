@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:44:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 16:50:29 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/07 18:28:55 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ void	Bureaucrat::incrementGrade() {
 
 void	Bureaucrat::decrementGrade() {
 	_grade++;
+}
+
+void		signForm() {
+	
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
