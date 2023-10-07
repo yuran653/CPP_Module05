@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:44:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 16:50:22 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/07 16:50:29 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ std::string	Bureaucrat::getName() const {
 int	Bureaucrat::getGrade() const {
 	return (_grade);
 }
-
 void	Bureaucrat::incrementGrade() {
 	_grade--;
 }

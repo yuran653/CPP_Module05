@@ -6,12 +6,12 @@
 #    By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 10:30:11 by jgoldste          #+#    #+#              #
-#    Updated: 2023/08/09 12:42:39 by jgoldste         ###   ########.fr        #
+#    Updated: 2023/10/07 15:32:48 by jgoldste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-NAME		:= animal
+NAME		:= bureaucrat
 
 SRCDIR		:= src
 OBJDIR		:= object
