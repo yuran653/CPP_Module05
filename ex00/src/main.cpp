@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:17:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 14:31:06 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/08 11:45:08 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ void	onHeap(int number, int action) {
 				std::cout << "Updated: " << *heap << std::endl;
 				delete heap;
 			}
-			catch (const std::exception& e) {
+			catch (std::exception& e) {
 				std::cerr << "Caught an exception: " << e.what() << std::endl;
 				delete heap;
 			}
 		}
-		catch (const std::exception& e) {
+		catch (std::exception& e) {
 			std::cerr << e.what() << std::endl;
 		}
 	}
