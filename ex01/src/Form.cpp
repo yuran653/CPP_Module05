@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:37:01 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/07 18:27:19 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/08 12:21:44 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Form& Form::operator=(const Form& other) {
 std::ostream& operator<<(std::ostream& os, const Form& obj) {
 	os << "Form name: [" << obj.getName() << "]" << std::endl
 		<< "Required sign grade: [" << obj.getSignGrade() << "]" << std::endl
-		<< "Required execute grate: [" << obj.getExecGrade() << "]" << std::endl
+		<< "Required execute grade: [" << obj.getExecGrade() << "]" << std::endl
 		<< "The form's signature status: ["
 		<< const_cast<Form&>(obj).getSigned() << "]" << std::endl;
 	return os;
@@ -63,8 +63,10 @@ bool	Form::getSigned() {
 	return (_signed);
 }
 
-void	beSigned(Bureaucrat obj) {
-	
+void	Form::beSigned(Bureaucrat& obj) {
+	if (obj.getGrade() > _sign_grade)
+		throw GradeTooLowException();
+	_signed = true;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
