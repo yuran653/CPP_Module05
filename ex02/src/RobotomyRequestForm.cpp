@@ -6,10 +6,9 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/09 14:23:23 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:53:25 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "RobotomyRequestForm.hpp"
 
@@ -18,7 +17,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& other)
-	: AForm(other), _target(other._target){
+	: AForm(other), _target(other._target) {
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {

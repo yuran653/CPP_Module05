@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:03:43 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/09 14:13:25 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:48:11 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& other) 
 	: AForm(other), _target(other._target) {
 }
+
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
