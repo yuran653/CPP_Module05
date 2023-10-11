@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:03:43 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/11 09:48:11 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:13:56 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,26 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat& executor){
-	(void)executor;
+void	ShrubberyCreationForm::executeAction() const {
+	std::ofstream outputFile(_target + "_shrubbery");
+	if (outputFile.is_open() == false)
+		throw std::runtime_error("Can't open file [" + _target +  "_shrubbery]");
+	outputFile << "                              +------------------+" << std::endl
+<< "                              |       AForm      |" << std::endl
+<< "                              +------------------+" << std::endl
+<< "                              | - name           |" << std::endl
+<< "                              | - signed         |" << std::endl
+<< "                              | - gradeToSign    |" << std::endl
+<< "                              | - gradeToExecute |" << std::endl
+<< "                              +--------|---------+" << std::endl
+<< "                                       |" << std::endl
+<< "            +--------------------------|--------------------------+" << std::endl
+<< "            |                          |                          |" << std::endl
+<< "+-----------|-----------+  +-----------|-----------+  +-----------|-----------+" << std::endl
+<< "| ShrubberyCreationForm |  |  RobotomyRequestForm  |  | PresidentialPardonForm|" << std::endl
+<< "+--------------=====----+  +-----------------------+  +-----------------------+" << std::endl
+<< "|       + target        |  |       + target        |  |       + target        |" << std::endl
+<< "+-----------------------+  +-----------------------+  +-----------------------+" << std::endl;
 }
 
 // ShrubberyCreationForm: Required grades: sign 145, exec 137

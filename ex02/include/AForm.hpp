@@ -6,13 +6,14 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:33:27 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/09 13:33:36 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:20:29 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -29,19 +30,21 @@ class AForm {
 		AForm(AForm& other);
 		
 		AForm& operator=(const AForm& other);
+		
+		virtual void	executeAction() const = 0;
 
 	public:
 		virtual ~AForm();
-
-		friend std::ostream& operator<<(std::ostream& os, const AForm& obj);
 
 		std::string		getName() const;
 		int				getSignGrade() const;
 		int				getExecGrade() const;
 		bool			getSigned();
 		void			beSigned(Bureaucrat& obj);
-		virtual void	execute(const Bureaucrat& executor) const = 0;
-
+		void			isSigned() const;
+		void			isEnoughGrade(const int grade, const std::string name) const;
+		void			execute(const Bureaucrat& executor) const;
+		
 		class GradeTooHighException: public std::exception {
 			public:
 				virtual const char* what() const throw();
@@ -51,6 +54,13 @@ class AForm {
 			public:
 				virtual const char* what() const throw();
 		};
+
+		// class FormNotSignedException: public std::exception {
+		// 	public:
+		// 		virtual const char* what() const throw();
+		// };
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& obj);
 
 #endif

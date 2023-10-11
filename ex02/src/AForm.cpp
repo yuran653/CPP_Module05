@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:37:01 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 16:37:03 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:37:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ std::ostream& operator<<(std::ostream& os, const AForm& obj) {
 	os << "Form name: [" << obj.getName() << "]" << std::endl
 		<< "Required sign grade: [" << obj.getSignGrade() << "]" << std::endl
 		<< "Required execute grade: [" << obj.getExecGrade() << "]" << std::endl
-		<< "The form's signature status: ["
-		<< const_cast<AForm&>(obj).getSigned() << "]" << std::endl;
+		<< "The form's signature status: [";
+		if (const_cast<AForm&>(obj).getSigned() == true)
+			std::cout << "signed";
+		else if (const_cast<AForm&>(obj).getSigned() == false)
+			std::cout << "not signed";
+		std::cout << "]" << std::endl;
 	return os;
 }
 
@@ -69,9 +73,62 @@ void	AForm::beSigned(Bureaucrat& obj) {
 	_signed = true;
 }
 
+// void	AForm::isSigned() const {
+// 	if (_signed == false)
+// 		throw FormNotSignedException();
+// }
+
+void	AForm::isSigned() const {
+	if (_signed == false)
+		throw std::invalid_argument("The form is not signed");
+}
+
+void	AForm::isEnoughGrade(const int grade, const std::string name) const {
+	if (grade > _exec_grade)
+		throw std::invalid_argument("Bureaucrat [" + name + "] has not enough grade");
+	std::cout << name + " executed " + getName() << std::endl;
+}
+
+void	AForm::execute(const Bureaucrat& executor) const{
+	try {
+		isSigned();
+		isEnoughGrade(executor.getGrade(), executor.getName());
+		try {
+			executeAction();
+		}
+		catch (const std::runtime_error& e) {
+			std::cerr << "Runtime error exception caught: " << e.what() << std::endl;
+		}
+	}
+	catch (const std::invalid_argument& e) {
+		std::cerr << "The form [" << getName() << "] can't be executed: "
+			<< e.what() << std::endl;
+	}
+}
+
+// void	AForm::execute(const Bureaucrat& executor) const{
+// 	try {
+// 		isSigned();
+// 		try {
+// 			executeAction();
+// 		}
+// 		catch (const std::runtime_error& e) {
+// 			std::cerr << "Runtime error exception caught: " << e.what() << std::endl;
+// 		}
+// 	}
+// 	catch (const std::exception& e) {
+// 		std::cerr << "The form [" << getName() << "] can't be executed: "
+// 			<< e.what() << std::endl;
+// 	}
+// }
+
 const char* AForm::GradeTooHighException::what() const throw() {
 	return ("The grade is too high");
 }
 const char* AForm::GradeTooLowException::what() const throw() {
 	return ("The grade is to low");
 }
+
+// const char* AForm::FormNotSignedException::what() const throw() {
+// 	return ("The form is not signed");
+// }

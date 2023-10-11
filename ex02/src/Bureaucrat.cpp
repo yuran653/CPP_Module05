@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:44:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 15:56:57 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:32:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,13 @@ void	Bureaucrat::signForm(AForm& obj) {
 			<< obj.getName() << "]" << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cerr << "Bureaucrat [" << _name << "] couldn't sign form ["
+		std::cerr << "Bureaucrat [" << _name << "] can't sign form ["
 			<< obj.getName() << "]: " << e.what() << std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm(const AForm& form) {
+	form.execute(*this);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
