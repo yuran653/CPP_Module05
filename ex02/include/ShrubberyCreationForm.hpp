@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:02:08 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/11 18:29:14 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:03:28 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
-		
-		// void	execute(const Bureaucrat& executor);
 };
 
 #endif

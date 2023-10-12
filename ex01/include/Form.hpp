@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:33:27 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 14:15:01 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:49:26 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ class Form {
 		~Form();
 
 		Form& operator=(const Form& other);
-		friend std::ostream& operator<<(std::ostream& os, const Form& obj);
-
+		
 		std::string	getName() const;
 		int			getSignGrade() const;
 		int			getExecGrade() const;
@@ -49,5 +48,7 @@ class Form {
 		};
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

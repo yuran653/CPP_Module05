@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:06:23 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/11 09:55:40 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:47:56 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 }
 
-void	PresidentialPardonForm::execute(const Bureaucrat& executor) {
-	(void)executor;
+void	PresidentialPardonForm::executeAction() const {
+	std::cout << "Informs that the form's target [" << _target
+		<< "] has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
 // PresidentialPardonForm: Required grades: sign 25, exec 5

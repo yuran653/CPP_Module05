@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:11 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/09 14:19:40 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:03:36 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class RobotomyRequestForm : public AForm {
 	private:
 		const std::string _target;
 
+		void	executeAction() const;
+
 	public:
 		RobotomyRequestForm(const std::string target);
 		RobotomyRequestForm(RobotomyRequestForm& other);
 		~RobotomyRequestForm();
 
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-
-		void	execute(const Bureaucrat& executor);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:54 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/11 09:53:25 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:02:32 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,17 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return *this;
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat& executor) {
-	(void)executor;
+void	RobotomyRequestForm::executeAction() const {
+	std::cout << "[" << getName() << "] makes drilling noise" << std::endl;
+	try {
+		srand(time(NULL));
+		if (rand() % 2)
+			throw std::invalid_argument("Robotmiztion of the form's target [" + _target + "] failed");
+		std::cout << "Robotmiztion of the form's target [" + _target + "] successful" << std::endl;
+	}
+	catch (std::invalid_argument& e) {
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 // RobotomyRequestForm: Required grades: sign 72, exec 45

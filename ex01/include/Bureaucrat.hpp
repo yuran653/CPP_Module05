@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:17:57 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 14:15:16 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:48:41 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ class Bureaucrat {
 		~Bureaucrat();
 
 		Bureaucrat& operator=(const Bureaucrat& other);
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
-
+		
 		std::string	getName() const;
 		int			getGrade() const;
 		void		incrementGrade();
@@ -49,5 +48,7 @@ class Bureaucrat {
 				virtual const char* what() const throw();
 		};
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif

@@ -6,13 +6,15 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:33:27 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/11 19:20:29 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:34:21 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
+#include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include "Bureaucrat.hpp"
 
@@ -42,7 +44,6 @@ class AForm {
 		bool			getSigned();
 		void			beSigned(Bureaucrat& obj);
 		void			isSigned() const;
-		void			isEnoughGrade(const int grade, const std::string name) const;
 		void			execute(const Bureaucrat& executor) const;
 		
 		class GradeTooHighException: public std::exception {
@@ -54,11 +55,6 @@ class AForm {
 			public:
 				virtual const char* what() const throw();
 		};
-
-		// class FormNotSignedException: public std::exception {
-		// 	public:
-		// 		virtual const char* what() const throw();
-		// };
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);
