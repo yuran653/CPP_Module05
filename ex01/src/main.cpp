@@ -6,14 +6,13 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:30:28 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 14:31:53 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:20:46 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void trySignForm(Bureaucrat bure, Form form)
-{
+void trySignForm(Bureaucrat bure, Form form) {
 	try {
 		bure.signForm(form);
 	}
@@ -34,8 +33,7 @@ void tryCreateSignFormOnHeap(Bureaucrat bure, int form_grade) {
 	}
 }
 
-void onHeap(int bure_grade, int form_grade)
-{
+void onHeap(int bure_grade, int form_grade) {
 	if (bure_grade < form_grade) {
 		std::cout << "====== ON HEAP ======" << std::endl;
 		for (int i = form_grade; bure_grade <= i;) {
@@ -58,8 +56,7 @@ void onHeap(int bure_grade, int form_grade)
 		std::cerr << "Error: incorrect arguments" << std::endl;
 }
 
-void tryCreateSignFormOnStack(Bureaucrat bure, int form_grade)
-{
+void tryCreateSignFormOnStack(Bureaucrat bure, int form_grade) {
 	try {
 		Form form("WTForm", form_grade, 1);
 		std::cout << form;
@@ -71,8 +68,7 @@ void tryCreateSignFormOnStack(Bureaucrat bure, int form_grade)
 		
 }
 
-void onStack(int bure_grade, int form_grade)
-{
+void onStack(int bure_grade, int form_grade) {
 	if (form_grade > bure_grade) {
 		std::cout << "====== ON STACK ======" << std::endl;
 		for (int i = form_grade; bure_grade <= i;) {

@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:33:27 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/12 16:49:26 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:12:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,6 @@ class Form {
 		int			getExecGrade() const;
 		bool		getSigned();
 		void		beSigned(Bureaucrat& obj);
-
-		class GradeTooHighException: public std::exception {
-			public:
-				virtual const char* what() const throw();
-		};
-
-		class GradeTooLowException: public std::exception {
-			public:
-				virtual const char* what() const throw();
-		};
-
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& obj);

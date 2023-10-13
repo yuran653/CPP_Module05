@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:37:01 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/12 15:13:26 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:16:10 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 AForm::AForm(const std::string name, const int sign_grade, const int exec_grade)
 	: _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade) {
 	if (sign_grade < 1 || exec_grade < 1)
-		throw AForm::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	if (sign_grade > 150 || exec_grade > 150)
-		throw AForm::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	_signed = false;
 }
 
@@ -69,7 +69,7 @@ bool	AForm::getSigned() {
 
 void	AForm::beSigned(Bureaucrat& obj) {
 	if (obj.getGrade() > _sign_grade)
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	_signed = true;
 }
 
@@ -99,11 +99,4 @@ void	AForm::execute(const Bureaucrat& executor) const{
 		std::cerr << "The form [" << getName() << "] can't be executed: "
 			<< e.what() << std::endl;
 	}
-}
-
-const char* AForm::GradeTooHighException::what() const throw() {
-	return ("The grade is too high");
-}
-const char* AForm::GradeTooLowException::what() const throw() {
-	return ("The grade is to low");
 }

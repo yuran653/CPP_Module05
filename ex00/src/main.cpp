@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 14:17:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/08 11:45:08 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:06:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	onHeap(int number, int action) {
 }
 
 int	main() {
-
 	int number = 0;
 	int	action = 0;
 
