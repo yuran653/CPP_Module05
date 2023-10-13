@@ -6,16 +6,16 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:44:44 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/12 19:44:48 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:49:20 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
 Intern::Intern() {
-	_request[0] = "shrubbery request";
-	_request[1] = "robotomy request";
-	_request[2] = "presidental request";
+	_request[0] = "shrubbery";
+	_request[1] = "robotomy";
+	_request[2] = "presidental";
 }
 
 Intern::~Intern() {
@@ -31,6 +31,7 @@ Intern& Intern::operator=(Intern& other) {
 	_request[0] = other._request[0];
 	_request[1] = other._request[1];
 	_request[2] = other._request[2];
+	return *this;
 }
 
 AForm* Intern::makeForm(std::string request, std::string target) {
@@ -39,13 +40,14 @@ AForm* Intern::makeForm(std::string request, std::string target) {
 		if (_request[i].compare(request) == 0) {
 			switch (i) {
 				case 0:
-					return &ShrubberyCreationForm(target);
+					return new ShrubberyCreationForm(target);
 				case 1:
-					return &RobotomyRequestForm(target);
+					return new RobotomyRequestForm(target);
 				case 2:
-					return &PresidentialPardonForm(target);
+					return new PresidentialPardonForm(target);
 			}
 		}
 	}
+	throw std::invalid_argument("Incorrect request: [" + request + "]");
 	return form;
 }

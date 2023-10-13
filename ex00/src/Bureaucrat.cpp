@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:44:35 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/12 16:45:20 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:07:01 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,14 @@ int	Bureaucrat::getGrade() const {
 
 void	Bureaucrat::incrementGrade() {
 	_grade--;
+	if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void	Bureaucrat::decrementGrade() {
 	_grade++;
+	if (_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
