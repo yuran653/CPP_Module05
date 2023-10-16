@@ -6,7 +6,7 @@
 /*   By: jgoldste <jgoldste@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:45:40 by jgoldste          #+#    #+#             */
-/*   Updated: 2023/10/13 17:13:17 by jgoldste         ###   ########.fr       */
+/*   Updated: 2023/10/16 14:12:13 by jgoldste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	main() {
 			catch (const std::exception& e) {
 				std::cerr << "Bureaucrat's error: " << e.what() << std::endl;
 			}
+			delete form;
+			form = NULL;
 		}
 		catch (const std::invalid_argument& e) {
 			std::cerr << "Form is not created: " << e.what() << std::endl;
@@ -80,8 +82,10 @@ int	main() {
 		std::cout << "For exit input [0], if you want to continue input [1]: ";
 		std::cin >> nbr;
 		std::cout << std::endl;
+		delete form;
+		delete bure;
+		form = NULL;
+		bure = NULL;
 	}
-	delete bure;
-	delete form;
 	return 0;
 }
